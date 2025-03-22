@@ -18,6 +18,11 @@ export const Sidebar = () => {
         <ul className="space-y-4 text-white">
           <li>
             <Link href="/" className="hover:underline">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link href="/" className="hover:underline">
               Dashboard
             </Link>
           </li>
