@@ -7,6 +7,7 @@ import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 import { useTheme } from "next-themes";
 import { Toaster } from "react-hot-toast";
 import { WagmiProvider } from "wagmi";
+import { EnergyChart } from "~~/components/EnergyChart";
 import { Footer } from "~~/components/Footer";
 import { Header } from "~~/components/Header";
 import { Sidebar } from "~~/components/Sidebar";
@@ -26,8 +27,9 @@ const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
         {/* Main content (Header + children + Footer) */}
         <div className="flex flex-col flex-1">
           <Header />
+          {/* {<EnergyChart />} */}
           <main className="flex-1 p-4">{children}</main>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </div>
       <Toaster />
