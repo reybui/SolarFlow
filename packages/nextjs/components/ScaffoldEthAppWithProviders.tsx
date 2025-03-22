@@ -20,7 +20,7 @@ const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      <div className="flex min-h-screen">
+      <div className="flex min-h-screen bg-[#E9F5DB]">
         {/* Sidebar on the left */}
         <Sidebar />
 
