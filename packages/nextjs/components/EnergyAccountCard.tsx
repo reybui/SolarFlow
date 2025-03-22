@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { MarketPriceChart } from "./MarketPriceChart";
 
 export const EnergyAccountCard: React.FC = () => {
   const [energy, setEnergy] = useState(0); // Start at 0 for animation
@@ -42,13 +43,6 @@ export const EnergyAccountCard: React.FC = () => {
           <div className="text-sm text-gray-600">
             Balance: <span className="font-medium">{energy} kWh</span>
           </div>
-        </div>
-
-        {/* Market Price - now in line to the right */}
-        <div className="text-right">
-          <p className="text-xl font-semibold text-gray-700 whitespace-nowrap">
-            Market Price: ${costPerKWh.toFixed(2)} / kWh
-          </p>
         </div>
       </div>
     </div>
