@@ -11,7 +11,7 @@ export const Sidebar = () => {
           <div className="w-18 h-18">
             <Image src="/logo-c.png" alt="Logo" width={100} height={100} className="object-contain" />
           </div>
-          <h1 className="text-white text-xl font-bold tracking-wide whitespace-nowrap">PowerChain Ltd.</h1>
+          <h1 className="text-white text-xl font-bold tracking-wide whitespace-nowrap">SolarFlow</h1>
         </div>
 
         {/* Navigation menu */}
@@ -61,7 +61,7 @@ export const Sidebar = () => {
               href="/logout"
               className="font-bold block py-2 px-3 rounded-md transition-all duration-200 hover:bg-white/20"
             >
-              Log out
+              Log Out
             </Link>
           </li>
         </ul>

@@ -9,7 +9,7 @@ export const EnergyAccountCard: React.FC = () => {
   const costPerKWh = 0.32;
 
   return (
-    <div className="w-full p-6 rounded-lg flex flex-col gap-4 items-center text-center">
+    <div className="w-full p-6 rounded-lg flex flex-col gap-10 items-center text-center">
       {/* Title */}
       <h2 className="text-xl font-bold text-gray-800">Energy Account</h2>
 

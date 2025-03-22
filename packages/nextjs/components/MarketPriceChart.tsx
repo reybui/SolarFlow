@@ -30,6 +30,8 @@ export const getCurrentMarketPrice = () => {
 
 export const MarketPriceChart = () => {
   const [timeRange, setTimeRange] = useState<"day" | "week" | "month">("week");
+  // Get current price
+  const currentPrice = getCurrentMarketPrice();
 
   // Filter based on timeRange
   const filteredData = {
@@ -39,8 +41,14 @@ export const MarketPriceChart = () => {
   }[timeRange];
 
   return (
-    <div className="w-full h-full rounded-lg flex flex-col justify-between py-6">
-      <div className="flex-1"></div> {/* Spacer */}
+    <div className="w-full h-full rounded-lg flex flex-col justify-between py-2">
+      {/* Current Market Price Display */}
+      <div className="w-full flex justify-center mb-3">
+        <div className="bg-green-100 rounded-lg px-6 shadow-md border border-green-300">
+          <p className="text-m font-semibold text-green-800">Market Price: ${currentPrice.toFixed(3)}/kWh</p>
+        </div>
+      </div>
+
       {/* Range Selector - Positioned lower */}
       <div className="flex justify-center gap-2 mb-4">
         {["day", "week", "month"].map(range => (
@@ -64,7 +72,6 @@ export const MarketPriceChart = () => {
           <Line type="monotone" dataKey="price" stroke="#4f46e5" name="Market Price ($/kWh)" />
         </LineChart>
       </ResponsiveContainer>
-      <div className="flex-1"></div> {/* Spacer */}
     </div>
   );
 };

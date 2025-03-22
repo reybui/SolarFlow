@@ -53,47 +53,50 @@ export const BuySellCard: React.FC = () => {
   }, [transactionInProgress]);
 
   return (
-    <div className="bg-white shadow-lg rounded-lg p-4 flex flex-col items-center space-y-3 w-56">
-      <div className="text-center w-full">
-        {/* <p className="text-xs font-medium text-gray-700">Your Energy Balance: {Math.round(energy * 100) / 100} kWh</p> */}
+    <div className="w-full p-6 rounded-lg flex flex-col gap-4 items-center text-center">
+      <h2 className="text-xl font-bold text-gray-800">Energy Transfer</h2>
+      <div className="bg-white shadow-lg rounded-lg p-4 flex flex-col items-center space-y-3 w-56">
+        <div className="text-center w-full">
+          {/* <p className="text-xs font-medium text-gray-700">Your Energy Balance: {Math.round(energy * 100) / 100} kWh</p> */}
+        </div>
+
+        <div className="w-full text-center">
+          <label className="block text-xs font-medium text-gray-700 mb-1">Amount to Buy/Sell (kWh)</label>
+          <input
+            type="number"
+            min="0"
+            step="0.01"
+            value={energyAmount}
+            onChange={e => setEnergyAmount(e.target.value)}
+            className="w-full p-1.5 text-sm border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 bg-gray-100 text-gray-900"
+            placeholder="Enter amount"
+          />
+        </div>
+
+        <div className="text-sm text-gray-700">Current Price: ${marketPrice.toFixed(3)}/kWh</div>
+        <div className="text-sm font-semibold text-gray-900">
+          Total Value: ${paymentAmount.toFixed(3)}
+          {transactionInProgress && <span className="ml-2 text-xs text-blue-500">(Processing...)</span>}
+        </div>
+
+        <button
+          onClick={handleBuy}
+          disabled={isGenerating || transactionInProgress}
+          className="btn btn-sm w-full font-medium bg-emerald-500 hover:bg-emerald-600 border-none text-white h-8 min-h-0 disabled:bg-emerald-400"
+        >
+          {isGenerating ? "Buying..." : transactionInProgress ? "Processing..." : "Buy Energy"}
+        </button>
+
+        <button
+          onClick={handleSell}
+          disabled={isSelling || parsedAmount > energy || transactionInProgress}
+          className="btn btn-sm w-full font-medium bg-red-500 hover:bg-red-600 border-none text-white h-8 min-h-0 disabled:bg-red-400"
+        >
+          {isSelling ? "Selling..." : "Sell Energy"}
+        </button>
+
+        {!isConnected && <p className="text-center text-red-500 text-xs">Connect wallet to trade energy</p>}
       </div>
-
-      <div className="w-full text-center">
-        <label className="block text-xs font-medium text-gray-700 mb-1">Amount to Buy/Sell (kWh)</label>
-        <input
-          type="number"
-          min="0"
-          step="0.01"
-          value={energyAmount}
-          onChange={e => setEnergyAmount(e.target.value)}
-          className="w-full p-1.5 text-sm border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 bg-gray-100 text-gray-900"
-          placeholder="Enter amount"
-        />
-      </div>
-
-      <div className="text-sm text-gray-700">Current Price: ${marketPrice.toFixed(3)}/kWh</div>
-      <div className="text-sm font-semibold text-gray-900">
-        Total Value: ${paymentAmount.toFixed(3)}
-        {transactionInProgress && <span className="ml-2 text-xs text-blue-500">(Processing...)</span>}
-      </div>
-
-      <button
-        onClick={handleBuy}
-        disabled={isGenerating || transactionInProgress}
-        className="btn btn-sm w-full font-medium bg-emerald-500 hover:bg-emerald-600 border-none text-white h-8 min-h-0 disabled:bg-emerald-400"
-      >
-        {isGenerating ? "Buying..." : transactionInProgress ? "Processing..." : "Buy Energy"}
-      </button>
-
-      <button
-        onClick={handleSell}
-        disabled={isSelling || parsedAmount > energy || transactionInProgress}
-        className="btn btn-sm w-full font-medium bg-red-500 hover:bg-red-600 border-none text-white h-8 min-h-0 disabled:bg-red-400"
-      >
-        {isSelling ? "Selling..." : "Sell Energy"}
-      </button>
-
-      {!isConnected && <p className="text-center text-red-500 text-xs">Connect wallet to trade energy</p>}
     </div>
   );
 };

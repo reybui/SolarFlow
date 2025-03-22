@@ -17,7 +17,7 @@ const Home: NextPage = () => {
             <Image src="/logo-b.png" alt="PowerChain Logo" width={150} height={150} className="mx-auto" />
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold mb-3 text-gray-900">PowerChain</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-3 text-gray-900">SolarFlow</h1>
 
           <p className="text-lg mb-6 text-gray-800 max-w-2xl mx-auto">
             Revolutionising how energy is tracked, traded, and managed on the blockchain. Connect your wallet to access
