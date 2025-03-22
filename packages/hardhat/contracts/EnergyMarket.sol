@@ -11,6 +11,7 @@ contract EnergyMarket is Ownable {
 
     event EnergySold(address indexed seller, uint256 amount, uint256 payment);
     event EnergyGenerated(address indexed user, uint256 amount);
+    event EnergyBought(address indexed buyer, uint256 amount, uint256 cost);
 
     constructor(address _nzddToken) Ownable(msg.sender) {
         nzddToken = IERC20(_nzddToken);
@@ -36,6 +37,13 @@ contract EnergyMarket is Ownable {
         emit EnergySold(msg.sender, energyAmount, payment);
     }
 
+    function buyEnergy(uint256 energyAmount) external {
+        uint256 cost = (energyAmount * pricePerEnergyUnit) / 1 ether;
+        require(nzddToken.transferFrom(msg.sender, address(this), cost), "Payment failed");
+        userEnergyBalance[msg.sender] += energyAmount;
+        emit EnergyBought(msg.sender, energyAmount, cost);
+    }
+
     // Admin function to set price
     function setEnergyPrice(uint256 newPrice) external onlyOwner {
         pricePerEnergyUnit = newPrice;
@@ -50,4 +58,4 @@ contract EnergyMarket is Ownable {
     function getUserEnergyBalance(address user) external view returns (uint256) {
         return userEnergyBalance[user];
     }
-} 
+}

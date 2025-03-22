@@ -14,7 +14,6 @@ const deployEnergyMarket: DeployFunction = async function (hre: HardhatRuntimeEn
     from: deployer,
     args: [nzddTokenAddress],
     log: true,
-    autoMine: true,
   });
 };
 

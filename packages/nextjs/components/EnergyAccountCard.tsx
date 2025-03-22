@@ -1,24 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { MarketPriceChart } from "./MarketPriceChart";
+import { useEnergy } from "~~/contexts/EnergyContext";
 
 export const EnergyAccountCard: React.FC = () => {
-  const [energy, setEnergy] = useState(0); // Start at 0 for animation
-  const targetEnergy = 50; // Final value on page load
-  const maxEnergy = 100;
+  const { energy, maxEnergy } = useEnergy();
   const costPerKWh = 0.32;
-
-  // Animate fill on mount
-  useEffect(() => {
-    let current = 0;
-    const interval = setInterval(() => {
-      current += 1;
-      setEnergy(prev => (current <= targetEnergy ? current : prev));
-      if (current >= targetEnergy) clearInterval(interval);
-    }, 15);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <div className="w-full p-6 rounded-lg flex flex-col gap-4 items-center text-center">
@@ -41,7 +29,7 @@ export const EnergyAccountCard: React.FC = () => {
 
           {/* Balance */}
           <div className="text-sm text-gray-600">
-            Balance: <span className="font-medium">{energy} kWh</span>
+            Balance: <span className="font-medium">{Math.round(energy * 100) / 100} kWh</span>
           </div>
         </div>
       </div>
