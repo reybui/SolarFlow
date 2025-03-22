@@ -2,24 +2,40 @@ import React from "react";
 import smartMeterData from "./smartMeterdata.json";
 import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 
-// Adjust the path if necessary
-
 export const EnergyChart = () => {
-  // Extract the data from the JSON file
-  const data = smartMeterData.smartMeterData.map(entry => ({
-    timestamp: new Date(entry.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-    energyGenerated: entry.energyGenerated,
-    energyConsumed: entry.energyConsumed,
-    batteryStatus: entry.batteryStatus,
-  }));
+  // Aggregate data by day
+  const aggregatedData = smartMeterData.smartMeterData.reduce(
+    (
+      acc: Record<string, { day: string; energyGenerated: number; energyConsumed: number; batteryStatus: number }>,
+      entry,
+    ) => {
+      const day = new Date(entry.timestamp).toLocaleDateString("en-US", { weekday: "long" }); // Get the day of the week (e.g., "Monday")
+      if (!acc[day]) {
+        acc[day] = {
+          day,
+          energyGenerated: 0,
+          energyConsumed: 0,
+          batteryStatus: entry.batteryStatus, // Use the latest battery status for the day
+        };
+      }
+      acc[day].energyGenerated += entry.energyGenerated || 0;
+      acc[day].energyConsumed += entry.energyConsumed || 0;
+      acc[day].batteryStatus = entry.batteryStatus; // Update to the latest battery status
+      return acc;
+    },
+    {},
+  );
+
+  // Convert the aggregated object into an array
+  const data = Object.values(aggregatedData);
 
   return (
     <div className="flex flex-col items-center">
-      <h2 className="text-xl font-bold mb-4">Energy Data</h2>
+      <h2 className="text-xl font-bold mb-4">Energy Data (Daily)</h2>
       <ResponsiveContainer width="100%" height={400}>
         <LineChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="timestamp" />
+          <XAxis dataKey="day" />
           <YAxis />
           <Tooltip />
           <Legend />
