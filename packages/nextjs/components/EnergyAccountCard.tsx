@@ -20,7 +20,7 @@ export const EnergyAccountCard: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full p-6 rounded-lg flex flex-col gap-4 bg-white shadow">
+    <div className="w-full p-6 rounded-lg flex flex-col gap-4">
       {/* Title */}
       <h2 className="text-xl font-bold text-gray-800">Energy Account</h2>
 
