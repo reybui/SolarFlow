@@ -10,6 +10,7 @@ import { WagmiProvider } from "wagmi";
 import { Footer } from "~~/components/Footer";
 import { Header } from "~~/components/Header";
 import { Sidebar } from "~~/components/Sidebar";
+import { WeatherCard } from "~~/components/WeatherCard";
 import { BlockieAvatar } from "~~/components/scaffold-eth";
 import { useInitializeNativeCurrencyPrice } from "~~/hooks/scaffold-eth";
 import { wagmiConfig } from "~~/services/web3/wagmiConfig";
@@ -26,7 +27,10 @@ const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
         {/* Main content (Header + children + Footer) */}
         <div className="flex flex-col flex-1">
           <Header />
-          <main className="flex-1 p-4">{children}</main>
+          <main className="flex-1 p-4">
+            <WeatherCard />
+            {children}
+          </main>
           <Footer />
         </div>
       </div>
