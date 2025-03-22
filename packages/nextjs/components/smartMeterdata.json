@@ -1,0 +1,66 @@
+
+{
+  "smartMeterData": [
+    {
+      "timestamp": "2025-03-22T08:00:00Z",
+      "energyGenerated": 5.2,
+      "energyConsumed": 3.1,
+      "batteryStatus": 78
+    },
+    {
+      "timestamp": "2025-03-22T09:00:00Z",
+      "energyGenerated": 6.8,
+      "energyConsumed": 2.9,
+      "batteryStatus": 82
+    },
+    {
+      "timestamp": "2025-03-22T10:00:00Z",
+      "energyGenerated": 7.5,
+      "energyConsumed": 3.5,
+      "batteryStatus": 85
+    },
+    {
+      "timestamp": "2025-03-22T11:00:00Z",
+      "energyGenerated": 8.0,
+      "energyConsumed": 4.0,
+      "batteryStatus": 88
+    },
+    {
+      "timestamp": "2025-03-22T12:00:00Z",
+      "energyGenerated": 8.3,
+      "energyConsumed": 4.2,
+      "batteryStatus": 90
+    },
+    {
+      "timestamp": "2025-03-22T13:00:00Z",
+      "energyGenerated": 7.9,
+      "energyConsumed": 4.1,
+      "batteryStatus": 89
+    },
+    {
+      "timestamp": "2025-03-22T14:00:00Z",
+      "energyGenerated": 7.2,
+      "energyConsumed": 3.8,
+      "batteryStatus": 87
+    },
+    {
+      "timestamp": "2025-03-22T15:00:00Z",
+      "energyGenerated": 6.5,
+      "energyConsumed": 3.6,
+      "batteryStatus": 85
+    },
+    {
+      "timestamp": "2025-03-22T16:00:00Z",
+      "energyGenerated": 5.8,
+      "energyConsumed": 3.3,
+      "batteryStatus": 82
+    },
+    {
+      "timestamp": "2025-03-22T17:00:00Z",
+      "energyGenerated": 4.9,
+      "energyConsumed": 3.0,
+      "batteryStatus": 79
+    }
+  ]
+}
+
