@@ -5,22 +5,18 @@ const deployEnergyMarket: DeployFunction = async function (hre: HardhatRuntimeEn
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
 
-  // First deploy the NZDD token
-  const nzddToken = await deploy("MockNZDD", {
-    from: deployer,
-    args: [],
-    log: true,
-    autoMine: true,
-  });
+  // Use the real NZDD token address on Sepolia
+  // This should be the contract address of your NZDD token (the one with 6 decimals)
+  const nzddTokenAddress = "0xE91d143072fc5e92e6445f18aa35DBd43597340c"; // Replace with your actual token contract address on Sepolia
 
-  // Then deploy the energy market
+  // Deploy the energy market with the real NZDD token address
   await deploy("EnergyMarket", {
     from: deployer,
-    args: [nzddToken.address],
+    args: [nzddTokenAddress],
     log: true,
     autoMine: true,
   });
 };
 
 export default deployEnergyMarket;
-deployEnergyMarket.tags = ["EnergyMarket", "MockNZDD"];
+deployEnergyMarket.tags = ["EnergyMarket"];

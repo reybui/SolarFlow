@@ -21,12 +21,12 @@ export const EnergyAccountCard: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full p-6 rounded-lg flex flex-col gap-4">
+    <div className="w-full p-6 rounded-lg flex flex-col gap-4 items-center text-center">
       {/* Title */}
       <h2 className="text-xl font-bold text-gray-800">Energy Account</h2>
 
       {/* Battery Row */}
-      <div className="flex justify-between items-center gap-6">
+      <div className="flex justify-center items-center gap-6">
         {/* Battery + Balance */}
         <div className="flex items-center gap-6">
           <div className="flex flex-col items-center">

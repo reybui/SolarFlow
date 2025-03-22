@@ -22,34 +22,38 @@ const generateMockData = () => {
 
 const fullData = generateMockData();
 
+// Export the current day's price for use in other components
+export const getCurrentMarketPrice = () => {
+  // Get the most recent day's price (last item in the array)
+  return fullData[fullData.length - 1].price;
+};
+
 export const MarketPriceChart = () => {
-  const [timeRange, setTimeRange] = useState<"day" | "month" | "year">("month");
+  const [timeRange, setTimeRange] = useState<"day" | "week" | "month">("week");
 
   // Filter based on timeRange
   const filteredData = {
     day: fullData.slice(-1),
+    week: fullData.slice(-7),
     month: fullData.slice(-30),
-    year: fullData,
   }[timeRange];
 
   return (
-    <div className="w-full 0.5rem rounded-lg flex flex-col gap-4">
-      <div className="flex justify-between items-center">
-        {/* Range Selector */}
-        <div className="flex gap-2">
-          {["day", "month", "year"].map(range => (
-            <button
-              key={range}
-              onClick={() => setTimeRange(range as "day" | "month" | "year")}
-              className={`btn btn-sm ${timeRange === range ? "btn-primary" : "btn-outline"}`}
-            >
-              {range.charAt(0).toUpperCase() + range.slice(1)}
-            </button>
-          ))}
-        </div>
+    <div className="w-full h-full rounded-lg flex flex-col justify-between py-6">
+      <div className="flex-1"></div> {/* Spacer */}
+      {/* Range Selector - Positioned lower */}
+      <div className="flex justify-center gap-2 mb-4">
+        {["day", "week", "month"].map(range => (
+          <button
+            key={range}
+            onClick={() => setTimeRange(range as "day" | "week" | "month")}
+            className={`btn btn-sm ${timeRange === range ? "btn-primary" : "btn-outline text-gray-800"}`}
+          >
+            {range.charAt(0).toUpperCase() + range.slice(1)}
+          </button>
+        ))}
       </div>
-
-      {/* Chart */}
+      {/* Chart - Also positioned lower */}
       <ResponsiveContainer width={300} height={180}>
         <LineChart data={filteredData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" />
@@ -60,6 +64,7 @@ export const MarketPriceChart = () => {
           <Line type="monotone" dataKey="price" stroke="#4f46e5" name="Market Price ($/kWh)" />
         </LineChart>
       </ResponsiveContainer>
+      <div className="flex-1"></div> {/* Spacer */}
     </div>
   );
 };
