@@ -30,9 +30,9 @@ export const EnergyChart = () => {
   const data = Object.values(aggregatedData);
 
   return (
-    <div className="flex flex-col items-center">
-      <h2 className="text-xl font-bold mb-4">Energy Data (Daily)</h2>
-      <ResponsiveContainer width="100%" height={400}>
+    <div className="flex flex-col items-center text-left">
+      <h2 className="text-m font-bold mb-4 text-black text-left">Energy Data (Daily)</h2>
+      <ResponsiveContainer width="100%" height={250}>
         <LineChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="day" />
