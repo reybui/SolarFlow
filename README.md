@@ -1,24 +1,3 @@
-# From Zero to dApp: Your First Blockchain Application Workshop 🚀
-
-Welcome to the "From Zero to dApp" workshop! In this beginner-friendly, hands-on session, you'll learn the fundamentals of decentralized app development—from understanding smart contracts to integrating a user interface and deploying on-chain. No prior experience is required; just bring your curiosity and readiness to build. By the end of this workshop, you'll have created and deployed your very first dApp and be well on your way to mastering blockchain technology.
-
-We use the [scaffoldeth.io](https://scaffoldeth.io/) framework to streamline development, making it easier than ever to build, test, and deploy your dApp.
-
-## What You'll Learn
-
-- **Local Blockchain Setup:** Run your own development chain using Hardhat.
-- **Smart Contract Development:** Write, deploy, and interact with smart contracts.
-- **Frontend Integration:** Connect your dApp to the blockchain using Next.js, wagmi, and Scaffold-ETH hooks.
-- **Live Deployment:** Deploy your smart contract without managing private keys manually, and host your frontend on Vercel.
-
-
-## Workshop Contents
-
-This repository contains:
-- **Smart Contract:** A Solidity contract that manages a greeting message, allows setting a beneficiary, and handles fund withdrawals.
-- **Frontend:** A Next.js application that reads the beneficiary address and includes a button to trigger the withdrawal.
-- **Deployment Scripts & Instructions:** Step-by-step guides for local development and deploying to a live network.
-
 
 ## Getting Started
 
