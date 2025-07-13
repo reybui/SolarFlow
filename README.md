@@ -1,3 +1,32 @@
+### Welcome to the SolarFlow repository!
+
+SolarFlow is a decentralized energy marketplace designed to empower solar panel owners and energy consumers by enabling peer-to-peer transactions. By leveraging blockchain and smart contracts, SolarFlow bypasses traditional power companies to create a fair, transparent, and efficient market for buying and selling excess solar energy.
+
+### Problem Statement
+
+Solar energy is abundant and renewable, yet many solar panel owners struggle to get fair buy-back rates for excess energy. Traditional power companies operate as natural monopolies, setting prices that often undervalue consumer-generated power. In New Zealand, solar accounts for only 1% of electricity production—well below the global average—despite strong potential for growth.
+
+### Our Solution
+
+SolarFlow addresses this imbalance with a decentralized marketplace where users trade excess solar energy directly. Key features include:
+
+Peer-to-Peer Trading: Sellers list a minimum acceptable price; buyers pay a single market rate determined by real-time supply and demand.
+
+Blockchain Backbone: Smart contracts enforce transparent, automated transactions without intermediaries.
+
+Aggregated Pricing: A live, single market price ensures fairness and reduces complexity.
+
+Efficient Allocation: Large purchase orders are split across multiple sellers to optimize price and reliability.
+
+Stable Currency: We use NZDD, a reliable stablecoin, to settle transactions.
+
+### Tech Innovations
+
+Smart Meter Integration: IoT-enabled meters feed real-world energy data directly into the marketplace.
+
+Dynamic Pricing Engine: Automated pricing algorithms adjust rates based on supply/demand shifts.
+
+Blockchain Security: Immutable transaction records safeguard against fraud
 
 ## Getting Started
 
